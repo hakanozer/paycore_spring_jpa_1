@@ -4,10 +4,7 @@ import com.works.entities.Product;
 import com.works.services.ProductService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequiredArgsConstructor
@@ -19,6 +16,11 @@ public class ProductRestcontroller {
     @PostMapping("/save")
     public ResponseEntity save(@RequestBody Product product) {
         return pService.save(product);
+    }
+
+    @GetMapping("/all")
+    public ResponseEntity all() {
+       return pService.allProduct();
     }
 
 }

@@ -35,4 +35,13 @@ public class ProductService {
         return new ResponseEntity(hm, HttpStatus.OK );
     }
 
+
+    public ResponseEntity allProduct() {
+        Map<String, Object> hm = new LinkedHashMap<>();
+        hm.put("status", true);
+        hm.put("prouct", pRepo.findAll());
+        return new ResponseEntity(hm, HttpStatus.OK );
+    }
+
+
 }

@@ -9,10 +9,11 @@ import javax.validation.constraints.Min;
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
 import java.util.Date;
+import java.util.List;
 
 @Entity(name = "Product")
 @Data
-public class Product {
+public class Product extends Base {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -34,13 +35,12 @@ public class Product {
     @Lob
     private String detail;
 
-    @NotNull
     private Date date;
 
 
     @PostLoad
     public void postLoad() {
-        System.out.println("Product postLoad");
+        System.out.println("Product postLoad " + this.getClass().getName());
     }
 
     @PostPersist
@@ -52,4 +52,12 @@ public class Product {
     public void prePersist() {
         System.out.println("Product prePersist");
     }
+
+    // join
+    @NotNull
+    @ManyToMany
+    @JoinTable(name = "Product_categories",
+            joinColumns = @JoinColumn(name = "Product_pid", referencedColumnName = "pid"),
+            inverseJoinColumns = @JoinColumn(name = "categories_cid", referencedColumnName = "cid"))
+    private List<Category> categories;
 }

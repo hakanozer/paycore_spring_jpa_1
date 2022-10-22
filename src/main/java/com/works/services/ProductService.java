@@ -1,6 +1,7 @@
 package com.works.services;
 
 import com.works.entities.Product;
+import com.works.repositories.ProCatJoinRepository;
 import com.works.repositories.ProductRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
@@ -17,6 +18,7 @@ import java.util.Optional;
 public class ProductService {
 
     final ProductRepository pRepo;
+    final ProCatJoinRepository proRepo;
 
     public ResponseEntity save(Product product) {
         Map<String, Object> hm = new LinkedHashMap<>();
@@ -39,7 +41,15 @@ public class ProductService {
     public ResponseEntity allProduct() {
         Map<String, Object> hm = new LinkedHashMap<>();
         hm.put("status", true);
-        hm.put("prouct", pRepo.findAll());
+        hm.put("product", proRepo.allProduct() );
+        //hm.put("product", pRepo.queryAllProduct());
+        return new ResponseEntity(hm, HttpStatus.OK );
+    }
+
+    public ResponseEntity productSearch( String q ) {
+        Map<String, Object> hm = new LinkedHashMap<>();
+        hm.put("status", true);
+        hm.put("result", pRepo.findByTitleContainsOrDetailContainsAllIgnoreCase(q,q));
         return new ResponseEntity(hm, HttpStatus.OK );
     }
 

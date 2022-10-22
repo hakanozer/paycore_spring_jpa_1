@@ -1,9 +1,14 @@
 package com.works.services;
 
+import com.querydsl.core.types.Predicate;
 import com.works.entities.Product;
+// import com.works.entities.QProduct;
 import com.works.repositories.ProCatJoinRepository;
 import com.works.repositories.ProductRepository;
 import lombok.RequiredArgsConstructor;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.Sort;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
@@ -41,8 +46,18 @@ public class ProductService {
     public ResponseEntity allProduct() {
         Map<String, Object> hm = new LinkedHashMap<>();
         hm.put("status", true);
-        hm.put("product", proRepo.allProduct() );
+        //hm.put("product", proRepo.allProduct() );
         //hm.put("product", pRepo.queryAllProduct());
+        //hm.put("product", pRepo.projectionProduct());
+        hm.put("product", pRepo.viewAllProduct());
+        return new ResponseEntity(hm, HttpStatus.OK );
+    }
+
+    public ResponseEntity allProductCat(Long cid, int pageCount) {
+        Pageable pageable = PageRequest.of(pageCount, 2);
+        Map<String, Object> hm = new LinkedHashMap<>();
+        hm.put("status", true);
+        hm.put("product", pRepo.projectionProductCat(cid, pageable));
         return new ResponseEntity(hm, HttpStatus.OK );
     }
 
@@ -50,6 +65,33 @@ public class ProductService {
         Map<String, Object> hm = new LinkedHashMap<>();
         hm.put("status", true);
         hm.put("result", pRepo.findByTitleContainsOrDetailContainsAllIgnoreCase(q,q));
+        return new ResponseEntity(hm, HttpStatus.OK );
+    }
+
+    // search - page
+    public ResponseEntity searchPage( String q, int pageCount, String s ) {
+
+        // sorted
+        Sort.TypedSort<Product> productTypedSort = Sort.sort(Product.class);
+        Sort sort = productTypedSort.by(Product::getPrice).ascending();
+        if ( s.equals("desc")) {
+            sort = productTypedSort.by(Product::getPrice).descending();
+        }
+
+        Pageable pageable = PageRequest.of(pageCount, 2, sort);
+        Map<String, Object> hm = new LinkedHashMap<>();
+        hm.put("status", true);
+        hm.put("result", pRepo.findByTitleContainsOrDetailContainsOrCategories_TitleContainsAllIgnoreCase(q,q,q, pageable));
+        return new ResponseEntity(hm, HttpStatus.OK );
+    }
+
+    // queryDSL
+    public ResponseEntity xqueryDSL( ) {
+        Map<String, Object> hm = new LinkedHashMap<>();
+        //QProduct qpr = QProduct.product;
+        //Predicate predicate = qpr.title.in("tab");
+        //hm.put("status", true);
+        //hm.put("result", pRepo.queryFindAll(predicate));
         return new ResponseEntity(hm, HttpStatus.OK );
     }
 

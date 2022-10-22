@@ -1,0 +1,555 @@
+{
+	"info": {
+		"_postman_id": "fc3144b5-baf7-4e29-8294-7c0add6107f4",
+		"name": "PayCore",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "1939021"
+	},
+	"item": [
+		{
+			"name": "Product Save",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"title\": \"Müdür Kalem\",\n    \"price\": 150.00,\n    \"detail\": \"Müdür Kalem Detay\",\n    \"categories\": [\n        { \"cid\": 1 },\n        { \"cid\": 2 }\n    ]\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8090/product/save",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8090",
+					"path": [
+						"product",
+						"save"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Product Save",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"title\": \"TV\",\n    \"price\": 6000,\n    \"detail\": \"TV Detail\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8090/product/save",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8090",
+							"path": [
+								"product",
+								"save"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Date",
+							"value": "Thu, 20 Oct 2022 17:48:12 GMT"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=60"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"status\": true,\n    \"product\": {\n        \"pid\": 1,\n        \"title\": \"TV\",\n        \"price\": 6000,\n        \"detail\": \"TV Detail\",\n        \"date\": \"2022-10-20T17:48:11.997+00:00\"\n    }\n}"
+				}
+			]
+		},
+		{
+			"name": "http://localhost:8090/product/all",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8090/product/all",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8090",
+					"path": [
+						"product",
+						"all"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "http://localhost:8090/product/all",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8090/product/all",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8090",
+							"path": [
+								"product",
+								"all"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Date",
+							"value": "Fri, 21 Oct 2022 15:52:39 GMT"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=60"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"status\": true,\n    \"product\": [\n        {\n            \"pid\": 1,\n            \"title\": \"TV\",\n            \"price\": 6000,\n            \"detail\": \"TV Detail\",\n            \"date\": \"2022-10-20T17:48:11.997+00:00\"\n        },\n        {\n            \"pid\": 4,\n            \"title\": \"Tablet\",\n            \"price\": 10000.56,\n            \"detail\": \"Tablet Detail\",\n            \"date\": \"2022-10-20T17:56:39.736+00:00\"\n        },\n        {\n            \"pid\": 5,\n            \"title\": \"Buzdolabı\",\n            \"price\": 20000.1,\n            \"detail\": \"Buzdolabı Detail\",\n            \"date\": \"2022-10-20T18:12:21.664+00:00\"\n        },\n        {\n            \"pid\": 6,\n            \"title\": \"iPhone\",\n            \"price\": 25000,\n            \"detail\": \"iPhone Detail\",\n            \"date\": \"2022-10-20T18:17:34.199+00:00\"\n        }\n    ]\n}"
+				}
+			]
+		},
+		{
+			"name": "http://localhost:8090/product/search/tablet",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8090/product/search/kal",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8090",
+					"path": [
+						"product",
+						"search",
+						"kal"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "http://localhost:8090/product/search/tablet",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8090/product/search/tablet",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8090",
+							"path": [
+								"product",
+								"search",
+								"tablet"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Date",
+							"value": "Fri, 21 Oct 2022 15:53:55 GMT"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=60"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"status\": true,\n    \"result\": [\n        {\n            \"pid\": 4,\n            \"title\": \"Tablet\",\n            \"price\": 10000.56,\n            \"detail\": \"Tablet Detail\",\n            \"date\": \"2022-10-20T17:56:39.736+00:00\"\n        }\n    ]\n}"
+				}
+			]
+		},
+		{
+			"name": "http://localhost:8090/product/searchPage/ta/0/desc",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8090/product/searchPage/ta/0/desc",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8090",
+					"path": [
+						"product",
+						"searchPage",
+						"ta",
+						"0",
+						"desc"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "http://localhost:8090/product/searchPage/ta/0/desc",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8090/product/searchPage/ta/0/desc",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8090",
+							"path": [
+								"product",
+								"searchPage",
+								"ta",
+								"0",
+								"desc"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Date",
+							"value": "Sat, 22 Oct 2022 10:11:00 GMT"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=60"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"status\": true,\n    \"result\": {\n        \"content\": [\n            {\n                \"status\": true,\n                \"createdDate\": 1666368718307,\n                \"lastModifiedDate\": 1666368718307,\n                \"createdBy\": \"ali@mail.com\",\n                \"lastModifiedBy\": \"ali@mail.com\",\n                \"pid\": 9,\n                \"title\": \"MacBook Air\",\n                \"price\": 60000,\n                \"detail\": \"Air Detay\",\n                \"date\": \"2022-10-21T16:09:24.472+00:00\",\n                \"categories\": [\n                    {\n                        \"status\": true,\n                        \"createdDate\": 1666368718307,\n                        \"lastModifiedDate\": 1666368718307,\n                        \"createdBy\": \"ali@mail.com\",\n                        \"lastModifiedBy\": \"ali@mail.com\",\n                        \"cid\": 1,\n                        \"title\": \"Ayakkabı\"\n                    },\n                    {\n                        \"status\": true,\n                        \"createdDate\": 1666368718307,\n                        \"lastModifiedDate\": 1666368718307,\n                        \"createdBy\": \"ali@mail.com\",\n                        \"lastModifiedBy\": \"ali@mail.com\",\n                        \"cid\": 2,\n                        \"title\": \"Elektronik\"\n                    }\n                ]\n            },\n            {\n                \"status\": true,\n                \"createdDate\": 1666368718307,\n                \"lastModifiedDate\": 1666368718307,\n                \"createdBy\": \"ali@mail.com\",\n                \"lastModifiedBy\": \"ali@mail.com\",\n                \"pid\": 8,\n                \"title\": \"MacBook Pro\",\n                \"price\": 60000,\n                \"detail\": \"MacBook Detay\",\n                \"date\": \"2022-10-21T16:03:53.081+00:00\",\n                \"categories\": [\n                    {\n                        \"status\": true,\n                        \"createdDate\": 1666368718307,\n                        \"lastModifiedDate\": 1666368718307,\n                        \"createdBy\": \"ali@mail.com\",\n                        \"lastModifiedBy\": \"ali@mail.com\",\n                        \"cid\": 3,\n                        \"title\": \"Bilgisayar\"\n                    }\n                ]\n            }\n        ],\n        \"pageable\": {\n            \"sort\": {\n                \"empty\": false,\n                \"unsorted\": false,\n                \"sorted\": true\n            },\n            \"offset\": 0,\n            \"pageNumber\": 0,\n            \"pageSize\": 2,\n            \"paged\": true,\n            \"unpaged\": false\n        },\n        \"totalPages\": 7,\n        \"totalElements\": 14,\n        \"last\": false,\n        \"size\": 2,\n        \"number\": 0,\n        \"sort\": {\n            \"empty\": false,\n            \"unsorted\": false,\n            \"sorted\": true\n        },\n        \"numberOfElements\": 2,\n        \"first\": true,\n        \"empty\": false\n    }\n}"
+				}
+			]
+		},
+		{
+			"name": "http://localhost:8090/product/allCat?cid=1&pageCount=2",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8090/product/allCat?cid=1&pageCount=2",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8090",
+					"path": [
+						"product",
+						"allCat"
+					],
+					"query": [
+						{
+							"key": "cid",
+							"value": "1"
+						},
+						{
+							"key": "pageCount",
+							"value": "2"
+						}
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "http://localhost:8090/product/allCat?cid=1&pageCount=2",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8090/product/allCat?cid=1&pageCount=2",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8090",
+							"path": [
+								"product",
+								"allCat"
+							],
+							"query": [
+								{
+									"key": "cid",
+									"value": "1"
+								},
+								{
+									"key": "pageCount",
+									"value": "2"
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Date",
+							"value": "Sat, 22 Oct 2022 10:10:45 GMT"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=60"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"status\": true,\n    \"product\": {\n        \"content\": [\n            {\n                \"pid\": 10,\n                \"title\": \"Kalem Air\",\n                \"detaiL\": null,\n                \"price\": 100,\n                \"cid\": null,\n                \"ctitle\": null\n            },\n            {\n                \"pid\": 13,\n                \"title\": \"Uçlu Kalem Air\",\n                \"detaiL\": null,\n                \"price\": 150,\n                \"cid\": null,\n                \"ctitle\": null\n            }\n        ],\n        \"pageable\": {\n            \"sort\": {\n                \"empty\": true,\n                \"unsorted\": true,\n                \"sorted\": false\n            },\n            \"offset\": 4,\n            \"pageNumber\": 2,\n            \"pageSize\": 2,\n            \"paged\": true,\n            \"unpaged\": false\n        },\n        \"totalPages\": 3,\n        \"totalElements\": 6,\n        \"last\": true,\n        \"size\": 2,\n        \"number\": 2,\n        \"sort\": {\n            \"empty\": true,\n            \"unsorted\": true,\n            \"sorted\": false\n        },\n        \"numberOfElements\": 2,\n        \"first\": false,\n        \"empty\": false\n    }\n}"
+				}
+			]
+		},
+		{
+			"name": "http://localhost:8090/customer/addElastic",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"cid\": \"2\",\n    \"name\": \"Serkan Bilmem\",\n    \"email\": \"serkan@mail.com\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8090/customer/add",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8090",
+					"path": [
+						"customer",
+						"add"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "http://localhost:8090/customer/addElastic",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"cid\": \"2\",\n    \"name\": \"Serkan Bilmem\",\n    \"email\": \"serkan@mail.com\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8090/customer/add",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8090",
+							"path": [
+								"customer",
+								"add"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Date",
+							"value": "Sat, 22 Oct 2022 12:55:19 GMT"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=60"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"status\": true,\n    \"result\": {\n        \"id\": \"da1aadf2-1d13-4b3c-8741-6671d7ae5cb1\",\n        \"cid\": \"2\",\n        \"name\": \"Serkan Bilmem\",\n        \"email\": \"serkan@mail.com\"\n    }\n}"
+				}
+			]
+		},
+		{
+			"name": "http://localhost:8090/customer/search?q=merhaba ben ali ve java - Elastic",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8090/customer/search?q=merhaba ali ve java",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8090",
+					"path": [
+						"customer",
+						"search"
+					],
+					"query": [
+						{
+							"key": "q",
+							"value": "merhaba ali ve java"
+						}
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "http://localhost:8090/customer/search?q=merhaba ben ali ve java - Elastic",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8090/customer/search?q=merhaba ben ali ve java",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8090",
+							"path": [
+								"customer",
+								"search"
+							],
+							"query": [
+								{
+									"key": "q",
+									"value": "merhaba ben ali ve java"
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Date",
+							"value": "Sat, 22 Oct 2022 12:54:01 GMT"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=60"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"status\": true,\n    \"result\": {\n        \"content\": [\n            {\n                \"id\": \"96b4213f-ddb9-4086-9c37-c5af6e70fcf7\",\n                \"cid\": \"2\",\n                \"name\": \"Ali Bilmem\",\n                \"email\": \"ali@mail.com\"\n            }\n        ],\n        \"pageable\": {\n            \"sort\": {\n                \"empty\": true,\n                \"sorted\": false,\n                \"unsorted\": true\n            },\n            \"offset\": 0,\n            \"pageNumber\": 0,\n            \"pageSize\": 2,\n            \"paged\": true,\n            \"unpaged\": false\n        },\n        \"totalPages\": 1,\n        \"totalElements\": 1,\n        \"last\": true,\n        \"size\": 2,\n        \"number\": 0,\n        \"sort\": {\n            \"empty\": true,\n            \"sorted\": false,\n            \"unsorted\": true\n        },\n        \"numberOfElements\": 1,\n        \"first\": true,\n        \"empty\": false\n    }\n}"
+				}
+			]
+		}
+	]
+}
